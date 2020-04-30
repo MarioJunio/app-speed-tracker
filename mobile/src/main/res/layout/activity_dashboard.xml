@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.DashboardActivity">
+
+    <include
+        layout="@layout/fragment_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/view_map_cockpit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <fragment xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:context=".activities.AppActivity" />
+
+        <LinearLayout
+            android:id="@+id/box_progress_meters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|top"
+            android:layout_margin="10dp"
+            android:alpha="0.6"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.daasuu.cat.CountAnimationTextView
+                android:id="@+id/var_progress_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="Arial"
+                android:text="0"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/var_progress_distance_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="Arial"
+                android:text="metros"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.github.anastr.speedviewlib.PointerSpeedometer
+            android:id="@+id/var_speedometer"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="end|top"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            app:sv_backgroundCircleColor="@android:color/transparent"
+            app:sv_centerCircleColor="@color/colorPrimaryDark"
+            app:sv_indicatorColor="@color/colorPrimaryDark"
+            app:sv_indicatorWidth="10dp"
+            app:sv_markColor="@color/colorPrimaryDark"
+            app:sv_maxSpeed="280"
+            app:sv_minSpeed="0"
+            app:sv_pointerColor="@color/colorPrimaryDark"
+            app:sv_speedTextColor="@color/colorPrimaryDark"
+            app:sv_speedTextFormat="INTEGER"
+            app:sv_speedTextPosition="RIGHT"
+            app:sv_speedTextSize="40dp"
+            app:sv_speedometerColor="@color/colorPrimaryDark"
+            app:sv_speedometerMode="LEFT"
+            app:sv_speedometerWidth="10dp"
+            app:sv_textColor="@color/colorPrimaryDark"
+            app:sv_textRightToLeft="true"
+            app:sv_unitSpeedInterval="4dp"
+            app:sv_unitTextColor="@color/colorPrimaryDark"
+            app:sv_unitTextSize="15dp"
+            app:sv_unitUnderSpeedText="true"
+            app:sv_withTremble="true" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_cancel_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:onClick="onCancelProgress"
+            android:src="@drawable/ic_cancel"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:rippleColor="@color/white_silver" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_start_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:onClick="onStartProgress"
+            android:src="@drawable/ic_new_progress"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:rippleColor="@color/white_silver" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_done_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:onClick="onDoneProgress"
+            android:src="@drawable/ic_race_flag"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:rippleColor="@color/white_silver" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_post_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:onClick="onDoneProgress"
+            android:src="@drawable/ic_send"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:rippleColor="@color/white_silver" />
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@drawable/bottom_navigation_item_background"
+        app:itemTextColor="@drawable/bottom_navigation_item_background"
+        app:menu="@menu/navigation" />
+
+</LinearLayout>

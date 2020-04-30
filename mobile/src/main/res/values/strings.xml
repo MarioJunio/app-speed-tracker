@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Velocita</string>
+    <string name="title_activity_app">Velocita</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notificações</string>
+    <string name="resize_map">Redimensionar</string>
+    <string name="title_map">Mapa</string>
+    <string name="request_progress_location">Para iniciar um novo progresso é necessário permitir o uso do GPS</string>
+
+</resources>
